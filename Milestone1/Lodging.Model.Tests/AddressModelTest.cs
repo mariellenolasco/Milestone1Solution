@@ -38,6 +38,19 @@ namespace Lodging.Models.Tests
               Street = "1234 test"
             }
           },
+          //invalid country
+          new object[]
+          {
+            new AddressModel()
+            {
+              Id = 0,
+              City = "testCity",
+              Country = "",
+              PostalCode = "12345",
+              StateProvince = "province",
+              Street = "1234 test"
+            }
+          },
           //invalid postal code
           new object[]
           {
@@ -49,6 +62,32 @@ namespace Lodging.Models.Tests
               PostalCode = "",
               StateProvince = "test state",
               Street = "123 test"
+            }
+          },
+          //invalid state/province
+          new object[]
+          {
+            new AddressModel()
+            {
+              Id = 0,
+              City = "testCity",
+              Country = "testCountry",
+              PostalCode = "12345",
+              StateProvince = "",
+              Street = "1234 test"
+            }
+          },
+          //invalid street
+          new object[]
+          {
+            new AddressModel()
+            {
+              Id = 0,
+              City = "testcity",
+              Country = "testCountry",
+              PostalCode = "12345",
+              StateProvince = "province",
+              Street = ""
             }
           }
         };

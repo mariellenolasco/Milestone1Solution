@@ -30,9 +30,21 @@ namespace Lodging.Models
         /// <returns></returns>
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) 
         {
+            var validator = new Validation();
             IEnumerable<ValidationResult> validationResults = new List<ValidationResult>();
+
             var isPostalCodeValid = validatePostalCode(this.PostalCode);
+            var isCityValid = validator.ValidateString(this.City);
+            var isCountryValid = validator.ValidateString(this.Country);
+            var isStateValid = validator.ValidateString(this.StateProvince);
+            var isStreetValid = validator.ValidateString(this.Street);
+
             if ( isPostalCodeValid != null) validationResults = validationResults.Append(isPostalCodeValid);
+            if (isCityValid != null) validationResults = validationResults.Append(new ValidationResult(isCityValid));
+            if (isCountryValid != null) validationResults = validationResults.Append(new ValidationResult(isCountryValid));
+            if (isStateValid != null) validationResults = validationResults.Append(new ValidationResult(isStateValid));
+            if (isStreetValid != null) validationResults = validationResults.Append(new ValidationResult(isStreetValid));
+
             return validationResults;
         }
 

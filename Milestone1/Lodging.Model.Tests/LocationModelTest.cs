@@ -15,24 +15,101 @@ namespace Lodging.Models.Tests
             new LocationModel()
             {
               Id = 0,
-              Address = new AddressModel(),
-              Latitude = "00",
-              Locale = "locale",
-              Longitude = "00"
+              Address = new AddressModel()
+                {
+                  Id = 0,
+                  City = "city",
+                  Country = "country",
+                  PostalCode = "33613",
+                  StateProvince = "stateprovince",
+                  Street = "street"
+                },
+              Latitude = "16.4023 N",
+              Locale = "en",
+              Longitude = "120.5960 E"
             }
           }
         };
         public static readonly IEnumerable<Object[]> _invalidLocations = new List<Object[]>
         {
+        //invalid latitude
           new object[]
           {
             new LocationModel()
             {
               Id = 0,
-              Address = new AddressModel(),
+              Address = new AddressModel()
+                {
+                  Id = 0,
+                  City = "city",
+                  Country = "country",
+                  PostalCode = "33613",
+                  StateProvince = "stateprovince",
+                  Street = "street"
+                },
               Latitude = "",
-              Locale = "",
+              Locale = "en",
+              Longitude = "120.5960 E"
+            }
+          },
+          //invalid latitude
+          new object[]
+          {
+            new LocationModel()
+            {
+              Id = 0,
+              Address = new AddressModel()
+                {
+                  Id = 0,
+                  City = "city",
+                  Country = "country",
+                  PostalCode = "33613",
+                  StateProvince = "stateprovince",
+                  Street = "street"
+                },
+              Latitude = "120.5960 E",
+              Locale = "en",
+              Longitude = "120.5960 E"
+            }
+          },
+          //invalid longitude
+          new object[]
+          {
+            new LocationModel()
+            {
+              Id = 0,
+              Address = new AddressModel()
+                {
+                  Id = 0,
+                  City = "city",
+                  Country = "country",
+                  PostalCode = "33613",
+                  StateProvince = "stateprovince",
+                  Street = "street"
+                },
+              Latitude = "16.4023 N",
+              Locale = "en",
               Longitude = ""
+            }
+          },
+           //invalid locale
+          new object[]
+          {
+            new LocationModel()
+            {
+              Id = 0,
+              Address = new AddressModel()
+                {
+                  Id = 0,
+                  City = "city",
+                  Country = "country",
+                  PostalCode = "33613",
+                  StateProvince = "stateprovince",
+                  Street = "street"
+                },
+              Latitude = "16.4023 N",
+              Locale = "",
+              Longitude = "120.5960 E"
             }
           }
         };

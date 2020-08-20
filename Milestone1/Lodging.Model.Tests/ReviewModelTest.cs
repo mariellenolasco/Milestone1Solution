@@ -25,11 +25,36 @@ namespace Lodging.Models.Tests
         {
           new object[]
           {
+            //invalid comment
             new ReviewModel()
             {
               Id = 0,
               AccountId = 0,
               Comment = "",
+              DateCreated = DateTime.Now,
+              Rating = 1
+            }
+          },
+          new object[]
+          {
+            //invalid date
+            new ReviewModel()
+            {
+              Id = 0,
+              AccountId = 0,
+              Comment = "I love it here",
+              DateCreated = DateTime.Now.AddDays(3.0),
+              Rating = 1
+            }
+          },
+          new object[]
+          {
+            //invalid rating
+            new ReviewModel()
+            {
+              Id = 0,
+              AccountId = 0,
+              Comment = "I love it here",
               DateCreated = DateTime.Now,
               Rating = -1
             }

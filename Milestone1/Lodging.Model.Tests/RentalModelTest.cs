@@ -25,6 +25,7 @@ namespace Lodging.Models.Tests
 
         public static readonly IEnumerable<Object[]> _invalidRentals = new List<Object[]>
         {
+        //invalid occupancy
           new object[]
           {
             new RentalModel()
@@ -32,6 +33,58 @@ namespace Lodging.Models.Tests
               Id = 0,
               Name = "name",
               Occupancy = -4,
+              Type = "camptype",
+              Status = "available",
+              Price = 20.00
+            }
+          },
+          //invalid name
+          new object[]
+          {
+            new RentalModel()
+            {
+              Id = 0,
+              Name = "",
+              Occupancy = 4,
+              Type = "camptype",
+              Status = "available",
+              Price = 20.00
+            }
+          },
+          //invalid type
+          new object[]
+          {
+            new RentalModel()
+            {
+              Id = 0,
+              Name = "name",
+              Occupancy = 4,
+              Type = "",
+              Status = "available",
+              Price = 20.00
+            }
+          },
+          //invalid status
+          new object[]
+          {
+            new RentalModel()
+            {
+              Id = 0,
+              Name = "name",
+              Occupancy = 4,
+              Type = "camptype",
+              Status = "not available",
+              Price = 20.00
+            }
+          },
+          //invalid price
+          new object[]
+          {
+            new RentalModel()
+            {
+              Id = 0,
+              Name = "name",
+              Occupancy = 4,
               Type = "camptype",
               Status = "available",
               Price = -20.00

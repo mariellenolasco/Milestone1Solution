@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Lodging.Models.Models
+namespace Lodging.Models
 {
     /// <summary>
     /// Model for describing the location of a lodging
